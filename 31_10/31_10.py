@@ -1,3 +1,5 @@
+
+
 def cria_no(valor):
     return{'valor': valor, 'proximo': None}
 
@@ -66,5 +68,40 @@ while True:
 
     else:
         cabeca, cauda = insere_inicio(cabeca, cauda, valor)
+
+
+
+
+def altera_no(cabeca):
+    while True:
+
+        valor_alterar = int(input('\nDigite o valor que você deseja alterar ou -1 para sair: '))
+
+        if valor_alterar == -1:
+            print('\nAlteração encerrado...')
+            break
+        
+        no_atual = cabeca
+        posicao = 1
+
+        encontrado = False
+
+        while no_atual is not None:
+            if no_atual['valor'] == valor_alterar:
+                encontrado = True
+
+                break
+            no_atual = no_atual['proximo']
+            posicao += 1
+        
+        if encontrado:
+            print(f'\nO valor {valor_alterar} foi encontrado na posição: {posicao} \n')
+            novo_valor = int(input(f'\nDigite o novo valor para este nó: '))
+            no_atual['valor'] = novo_valor
+            print(f'\nO valor do nó na posição {posicao} foi alterado para: {novo_valor} \n')
+            print('Os elementos da lista atualizada são: ')
+            mostra_lista(cabeca)
+        else:
+            print(f'\nValor não encontrado...')
 
 mostra_lista(cabeca)
