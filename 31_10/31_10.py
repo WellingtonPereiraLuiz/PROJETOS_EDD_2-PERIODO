@@ -70,7 +70,7 @@ while True:
         cabeca, cauda = insere_inicio(cabeca, cauda, valor)
 
 
-
+mostra_lista(cabeca)
 
 def altera_no(cabeca):
     while True:
@@ -104,4 +104,74 @@ def altera_no(cabeca):
         else:
             print(f'\nValor não encontrado...')
 
-mostra_lista(cabeca)
+altera_no(cabeca)
+
+def exclui_no(cabeca, cauda): 
+
+    while True:
+
+        valor_excluir = int(input('\nDigite o valor que você deseja excluir ou 1 para sair:'))
+
+        if valor_excluir == 1:
+            print('\nExclusão encerrada...')
+            break
+
+        no_atual = cabeca
+        no_anterior = None
+        posicao = 1
+
+        encontrado = False
+
+        while no_atual is not None:
+
+            if no_atual['valor'] == valor_excluir:
+
+                encontrado = True
+                break
+
+            no_anterior = no_atual
+            no_atual = no_atual['proximo']
+
+            posicao += 1
+
+        if not encontrado:
+            no_atual = cauda
+            no_anterior = None
+            posicao = -1
+
+            while no_atual is not None:
+                if no_atual['valor'] == valor_excluir:
+
+                    encontrado = True
+
+                    break
+                    
+                no_anterior = no_atual
+                no_atual = no_atual['anterior']
+                posicao -= 1
+        
+        if encontrado:
+            print(f'\nO valor {valor_excluir} foi encontrado na posição: {posicao}')
+            confirmacao = input(f'\nDeseja realemnte excluir esse no? (sim/nao): ')
+
+            if confirmacao.lower() == 'sim':
+                if no_anterior is None:
+                    cabeca = no_atual['proximo']
+                else:
+                    no_anterior['proximo'] = no_atual['proximo']
+
+                    if no_atual['proximo']:
+                        no_atual['proximo']['anterior'] = no_anterior
+                
+                print(f'\nO valor do no na posição {posicao} foi excluido\n')
+                print('Os elementos da lista atualizada são: \n')
+                mostra_lista(cabeca)
+            
+            else:
+                print('Exclusao cancelada...')
+        else:
+            print(f'\nValor não encontrado...')
+
+exclui_no(cabeca, cauda)
+
+                
