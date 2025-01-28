@@ -95,15 +95,51 @@ print(f'\nO valor retornado é: {somar(4)}')
 #Lambda - função sem a palavra reservada def() 
 a = lambda x : x * 2
 print(f'\nO valor da expressãp é: {a(6)}\n')
-"""
  #Diferentes entradas de dados para funções lambda
 sem_entrada = lambda: 'Estrutura de Dados'
 uma_entrada = lambda x: 5*x+3
 duas_entradas = lambda x, y: (x*y) ** 0.8
 tres_entradas = lambda x, y, z: 5 / ( 2 / x + 2 / y + 2 / z)
 
-print
+print(f'\nLambda sem entrada: {sem_entrada()}')
+print(f'\nLambda com uma entrada: {uma_entrada(12)}')
+print(f'\nLambda com duas entradas: {duas_entradas(7, 9)}')
+print(f'\nLambda com tres entradas: {tres_entradas(4, 12, 18)}')
 
+
+#Processamento de Eventos em interfaces Graficas:
+import tkinter as tk
+
+def atualiza_label(label, texto):
+    label.config(text=texto)
+
+root = tk.Tk()
+root.geometry('200x100')
+label = tk.Label(root, text = "Texto inicial")
+label.pack()
+
+botao = tk.Button(root, text="CLique aqui", command=lambda: atualiza_label(label, "Texto apos clique"))
+botao.pack()
+
+root.mainloop()
+
+
+#Funcao que calcula a area de um circulo com raio r, com map().
+import math
+
+def area(r):
+    return math.pi * (r **2)
+
+raios = [4, 10, 14.2, 0.6, 20, 88]
+
+areas = map(area, raios)
+
+print(f'\nAreas mapeadas: {areas}')
+print(f'\nTipop dos dados mapeados: {type(areas)}')
+print(f'\nArea do circulo calculado: {list(areas)}')
+
+print(f'\nO valor das areas calculadas apos a primeira execucao do map() é {list(areas)}')
+"""
 
 
 
