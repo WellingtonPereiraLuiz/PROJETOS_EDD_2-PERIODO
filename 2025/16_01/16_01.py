@@ -140,7 +140,11 @@ print(f'\nArea do circulo calculado: {list(areas)}')
 
 print(f'\nO valor das areas calculadas apos a primeira execucao do map() é {list(areas)}')
 """
+# Função list(), map() e lambda()
+import math
+raios = [4, 10, 14.2, 0.6, 20, 88]
 
+print(f'\nArea do circulo calculada {list(map(lambda r : math.pi * (r**2), raios))}\n')
 
 
 
