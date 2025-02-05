@@ -1,5 +1,5 @@
 """
-Claudinei de Oliveira - UTF8 - pt-br
+Wellington Pereira Luiz - UTF8 - pt-br
 - Tkinter: controller.py
 JSON - JavaScript Object Notation
 """

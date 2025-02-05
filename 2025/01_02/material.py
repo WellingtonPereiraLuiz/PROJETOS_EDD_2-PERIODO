@@ -1,3 +1,8 @@
+"""
+Wellington Pereira Luiz - UTF8 - pt-br
+"""
+
+
 # Verifica o path – módulo os função getcwd() 
 # import os
 # root_dir = os.getcwd()
